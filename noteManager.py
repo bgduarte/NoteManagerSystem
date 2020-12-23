@@ -24,6 +24,8 @@ def NoteManager():
                 if(notes[i][0] == self.__notes[k][0]):
                     self.__notes[k][1] += notes[i][1]
 
+        ##TODO: Tratamento de erros
+
 
 
     #Função que tenta realizar um saque
@@ -36,3 +38,4 @@ def NoteManager():
 
     #Função que imprime o atual quantidade de notas
     def print(self):
+        pass
