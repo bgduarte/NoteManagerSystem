@@ -1,4 +1,5 @@
 #Classe de gerenciamento de notas
+import copy
 
 class NoteManager:
     #Construtor
@@ -16,17 +17,19 @@ class NoteManager:
 
     #Função de abastecimento
     def fill(self, notes): #Recebe uma lista de tuplas
-
+        tempNotes = copy.deepcopy(self.__notes)
         #Para cada chave/tipo de nota recebida procura a equivalente na lista de notas permitidas/registradas
         #e faz os respectivos abastecimentos
         for i in range(len(notes)):
-            for k in range(len(self.__notes)):
-                if(notes[i][0] == self.__notes[k][0]):
-                    self.__notes[k][1] += notes[i][1]
-
-        ##TODO: Tratamento de erros
-
-
+            hasFind = False
+            for k in range(len(tempNotes)):
+                if(notes[i][0] == tempNotes[k][0]):
+                    tempNotes[k][1] += notes[i][1]   
+                    hasFind = True
+            if hasFind == False:
+                raise ValueError('Chave desconhecida: {}, abastecimento não registrado'.format(notes[i]))
+        
+        self.__notes = tempNotes
 
     #Função que tenta realizar um saque
     def tryWithDrawal(self, valor):
