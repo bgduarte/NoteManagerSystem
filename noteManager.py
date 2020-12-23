@@ -38,4 +38,4 @@ def NoteManager():
 
     #Função que imprime o atual quantidade de notas
     def print(self):
-        pass
+        print()
