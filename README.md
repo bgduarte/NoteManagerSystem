@@ -16,7 +16,7 @@ Consiste em uma lista privada de duplas onde o primeiro elemento é o valor de u
 ```
 def __init__(self):
 ``` 
-Não leva nenhum argumento.
+Não leva nenhum argumento. Aqui são definidas as notas aceitas, além da ordem em que seram retiradas.
 
 #### Abastecimento 
     def fill(self, notes): 
@@ -33,5 +33,5 @@ Não possui argumento e retorna uma cópia da lista atual de notas.
 ## Como utilitar
 Para utilizar o sistema instancie a classe _noteManager_ no arquivo _noteManager.py_ e chame as funções de abastecimento e saque conforme a documentação acima. Há também um arquivo _test.py_ que possui alguns testes exemplo. Basta executa-lo para verificar algumas das funcionalidades da classe
 
-## Autor:
+## Autor
 Bernardo Gomes Duarte
