@@ -1,24 +1,22 @@
 #Arquivo de testes
 from noteManager import NoteManager 
-noteM = NoteManager()
+manager = NoteManager()
+
+def printNotesList(notes):
+    for note in notes:
+        print('Notas de {}: {}'.format(note[0], note[1]))
 
 #TESTES
 
 #Testes de abastecimento
 print('\n\nTeste de abastecimento com chave incorreto: ')
-notas = [['20', 2],['fe', 40], ['50', 30]]
+notas = [[20, 2],[30, 40], [50, 30]]
 try:
-    noteM.fill(notas)
+    manager.fill(notas)
 except Exception as inst:
     print(inst)
 
-
-notas = [['20', 2],['50', 40], ['100', 30]]
-try:
-    noteM.fill(notas)
-except Exception as inst:
-    print(inst)
-
-
-
-noteM.show()
+print('\n\nTeste de abastecimento: ')
+notas = [[20, 2],[50, 5], [100, 3]]
+manager.fill(notas)
+printNotesList(manager.getNotes())
