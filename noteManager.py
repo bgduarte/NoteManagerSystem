@@ -5,7 +5,7 @@ import math
 class NoteManager:
     #Construtor
     def __init__(self):
-        self.__notes = []#Lista de tuplas onde o primeiro elemento é a chave(valor da nota) e o segundo a quantidade
+        self.__notes = []#Lista de duplas onde o primeiro elemento é a chave(valor da nota) e o segundo a quantidade
 
         #Inicialização de todas notas do real aceitas. Também define a ordem na qual as notas são retiradas
         self.__notes.append([100, 0])
@@ -14,7 +14,7 @@ class NoteManager:
         self.__notes.append([10, 0])
 
     #Função de abastecimento
-    def fill(self, notes): #Recebe uma lista de tuplas
+    def fill(self, notes): #Recebe uma lista de duplas
         tempNotes = copy.deepcopy(self.__notes)
         
         #Para cada chave/tipo de nota recebida procura a equivalente na lista de notas permitidas/registradas
@@ -30,7 +30,7 @@ class NoteManager:
         
         self.__notes = tempNotes
 
-    #Função que tenta realizar um saque
+    #Função que de saque
     def withDrawal(self, value):
         withDrawalNotes = []
         tempNotes = copy.deepcopy(self.__notes)
