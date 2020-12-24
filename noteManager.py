@@ -1,5 +1,6 @@
 #Classe de gerenciamento de notas
 import copy
+import math
 
 class NoteManager:
     #Construtor
@@ -35,7 +36,7 @@ class NoteManager:
         tempNotes = copy.deepcopy(self.__notes)
 
         for note in tempNotes:
-            noteAmount = int(value)/int(note[0])
+            noteAmount = math.floor(value/note[0]) # Função floor simula divisão propia de inteiros
             if(noteAmount != 0):
                 if(noteAmount > note[1]):#Se a quantidade sugerida daquelas notas for maior que as notas disponiveis
                     noteAmount = note[1]
