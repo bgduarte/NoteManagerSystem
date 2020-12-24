@@ -32,19 +32,20 @@ class NoteManager:
 
     #Função que de saque
     def withDrawal(self, value):
+        valueCopy = value.copy()
         withDrawalNotes = []
         tempNotes = copy.deepcopy(self.__notes)
 
         for note in tempNotes:
-            noteAmount = math.floor(value/note[0]) # Função floor simula divisão propia de inteiros
+            noteAmount = math.floor(valueCopy/note[0]) # Função floor simula divisão propia de inteiros
             if(noteAmount != 0):
                 if(noteAmount > note[1]):#Se a quantidade sugerida daquelas notas for maior que as notas disponiveis
                     noteAmount = note[1]
                 withDrawalNotes.append([note[0], noteAmount])
-                value -= note[0] * noteAmount
+                valueCopy -= note[0] * noteAmount
                 note[1] -= noteAmount
         
-        if(value != 0):#Se o valor do saque não foi satisfeito cancela a operaçao e retorna um lista sem notas
+        if(valueCopy != 0):#Se o valor do saque não foi satisfeito cancela a operaçao e retorna um lista sem notas
             withDrawalNotes = []
         else:
             self.__notes = tempNotes
